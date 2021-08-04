@@ -1,0 +1,248 @@
+#!/bin/bash
+ls -al
+pwd
+
+# variable part
+message='Bonjour tt le monde'
+echo $message
+
+message1="Bonjour c'est moi"
+echo $message1
+
+longmessage="Bonjour tout le monde \n je suis baddi yousse"
+echo -e $longmessage
+
+nom="BADDI"
+echo "Bonjour je suis : $nom"
+echo 'Bonjour je suis : $nom'
+
+cmd=$(pwd)
+echo "vous etes dans le dossier $cmd"
+
+#read name
+#echo "Bonjour Mr $name"
+
+#read nom1 prenom1
+#echo "Bonjour $nom1 $prenom1"
+
+#echo "entrez votre nom"
+#read nom
+#echo "$nom"
+
+##################
+
+#read -p 'Entrez votre nom: ' nom
+#echo "vous etes $nom"
+
+############ limiter le nom de caractere
+
+#read -p 'Entrez votre nom (max 5caracteres):' -n 5 nom
+#echo "votre nom en 5 caractere est $nom"
+
+################## limitation en temps
+
+#read -p 'Entrez votre nom (max 5caracteres):' -t 5 nom
+#echo "votre nom en 5 caractere est $nom"
+
+
+########### entrer un password
+
+#read -p 'Entrez votre password:' -s  nom
+#echo "votre nom en 5 caractere est $nom"
+
+
+############ Matrh
+
+
+let "a = 6"
+let "b = 3"
+let "c = a + b"
+echo $c
+
+#+
+#*
+let "d=a ** 2"
+echo $d
+# /
+# %
+echo $PATH
+
+touch $HOME/file
+
+#    $1
+#	$2
+#	$3
+#	...
+echo "bonjour je suis $1"
+echo "vous avvez entrer $# parametres ave cle script $0"
+
+
+
+table=('val0' 'val1' 'val2' 'val3')
+
+echo ${table[12]}
+table[1]='value1'
+echo ${table[1]}
+table[12]='value12'
+echo ${table[12]}
+
+echo ${table[*]}
+
+
+###############Condition
+read -p 'entrez votre nom' nom
+
+if [ $nom = 'BADDI'  ]
+then 
+	echo 'nice, your name is good'
+fi
+
+if [ $nom = 'BADDI'  ] 
+then 
+     echo 'nice, your name is good'
+else
+	echo 'sorry, your name is not good'
+fi
+
+
+
+
+
+
+if [ $nom = 'BADDI'  ]
+then
+     echo 'nice, your name is good'
+elif [ $nom = 'youssef'  ]
+then
+        echo 'sorry, your name and not your firstname'
+else
+	echo "sorry, your not eligble"
+fi
+
+##### test
+
+# = , != 
+# -z $var
+# 0n $var
+# -eq
+# -ne
+# -lt / -le
+# -gt / -ge
+#  -e $filename
+# -d $filename:    check if the file is a directory
+# -f $filename:    check if its a folder
+# -L $filename
+# -r $filename
+# -w $filename
+# -x $filename
+# $filename -nt $filename
+# $fielanem -ot $filename
+
+#    && ||
+# !  pour inverser un test
+
+
+
+if [ -z $nom ]
+then
+     echo 'nice, your name is empty'
+else
+        echo 'sorry, your name is not empty'
+fi
+
+
+
+if [ -e $2 ] && [ -f $2  ]
+then
+     echo 'nice, your file exit and its a file'
+else
+        echo "sorry, your file doesn't exist or its not a file"
+fi
+
+
+
+############ case
+
+case $3 in 
+	"rania")
+		echo "hello dear rania"
+		;;
+	"king" | "Khaled" )
+		echo "you are a both  king"
+		;;
+	*)
+		echo "hello world"
+		;;
+esac
+
+
+
+
+##### while
+
+while [ -z $response ] || [ $response != 'yes' ]
+do
+     read -p 'say yes' response
+done
+
+
+
+######### for
+for var in 'val1' 'val2' 'val3'
+do
+
+	echo $var
+done
+
+
+list_file=`ls ~`
+for item in $list_file
+do
+
+        echo $item
+done
+
+
+
+
+
+
+for item in `seq 10 1000`
+do
+
+        echo $item
+done
+
+
+##### function
+
+
+nomfonction()
+{
+   echo "hello"
+}
+
+nomfonction
+
+
+
+nomfonction()
+{
+   echo "hello"
+}
+
+nomfonction
+
+
+function nomfonction_1
+{
+   echo "hello $1 vous etes en $0"
+}
+
+nomfonction_1 baddi
+
+
+
+
+
+
